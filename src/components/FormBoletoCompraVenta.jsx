@@ -227,7 +227,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
       {/* BLOQUE VENDEDOR Y COMPRADOR */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos del Vendedor
           </h3>
           <div className="space-y-2">
@@ -236,7 +236,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vendedorNombre"
               value={data.vendedorNombre || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -245,7 +245,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vendedorDni"
               value={data.vendedorDni || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -254,7 +254,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vendedorDomicilio"
               value={data.vendedorDomicilio || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -263,7 +263,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vendedorLocalidad"
               value={data.vendedorLocalidad || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -272,13 +272,13 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vendedorTel"
               value={data.vendedorTel || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
 
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos del Comprador
           </h3>
           <div className="space-y-2">
@@ -287,7 +287,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="compradorNombre"
               value={data.compradorNombre || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -296,7 +296,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="compradorDni"
               value={data.compradorDni || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -305,7 +305,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="compradorDomicilio"
               value={data.compradorDomicilio || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -314,7 +314,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="compradorLocalidad"
               value={data.compradorLocalidad || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -323,7 +323,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="compradorTel"
               value={data.compradorTel || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
@@ -331,7 +331,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
 
       {/* BLOQUE VEHICULO */}
       <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-        <h3 className="font-bold text-red-600 uppercase tracking-wide">
+        <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
           Datos del Vehículo
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -341,7 +341,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               value={data.vehiculoMarca}
               onValueChange={(val) => handleSelectChange("vehiculoMarca", val)}
             >
-              <SelectTrigger className="bg-white focus:ring-red-600">
+              <SelectTrigger className="bg-white focus:ring-yellow-600">
                 <SelectValue placeholder="Seleccionar..." />
               </SelectTrigger>
               <SelectContent>
@@ -359,7 +359,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoModelo"
               value={data.vehiculoModelo || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -368,7 +368,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoTipo"
               value={data.vehiculoTipo || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -377,7 +377,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoDominio"
               value={data.vehiculoDominio || ""}
               onChange={handleChange}
-              className="bg-white  focus-visible:ring-red-600 uppercase"
+              className="bg-white  focus-visible:ring-yellow-600 uppercase"
             />
           </div>
           <div className="space-y-2">
@@ -386,7 +386,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoMotor"
               value={data.vehiculoMotor || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
           <div className="space-y-2">
@@ -395,7 +395,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoChasis"
               value={data.vehiculoChasis || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
           <div className="space-y-2">
@@ -404,7 +404,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               value={data.vehiculoAnio}
               onValueChange={(val) => handleSelectChange("vehiculoAnio", val)}
             >
-              <SelectTrigger className="bg-white focus:ring-red-600">
+              <SelectTrigger className="bg-white focus:ring-yellow-600">
                 <SelectValue placeholder="Seleccionar..." />
               </SelectTrigger>
               <SelectContent>
@@ -422,7 +422,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="vehiculoInsc"
               value={data.vehiculoInsc || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
@@ -431,7 +431,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
       {/* BLOQUE OPERACIÓN Y FECHAS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Operación
           </h3>
           <div className="space-y-2">
@@ -440,7 +440,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="precio"
               value={data.precio || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -450,7 +450,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               value={data.formaPago || ""}
               onChange={handleChange}
               minRows={1}
-              className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 resize-none"
+              className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-600 resize-none"
             />
           </div>
           <div className="space-y-2">
@@ -459,7 +459,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="gastoTransferencia"
               value={data.gastoTransferencia || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           {tipo === "consignacion" && (
@@ -472,7 +472,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 value={data.fechaTrans || ""}
                 onChange={handleChange}
                 placeholder="Ej: 30"
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
           )}
@@ -482,13 +482,13 @@ export default function FormBoletoCompraVenta({ tipo }) {
               name="observaciones"
               value={data.observaciones || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
 
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Fechas de la Operación
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -519,7 +519,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                     });
                   }
                 }}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
 
@@ -531,7 +531,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                     value={data.obs2 || ""}
                     onChange={handleChange}
                     minRows={1}
-                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 resize-none"
+                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-600 resize-none"
                   />
                 </div>
 
@@ -541,7 +541,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                     value={data.obs3 || ""}
                     onChange={handleChange}
                     minRows={1}
-                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 resize-none"
+                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-600 resize-none"
                   />
                 </div>
                 <div className="space-y-2">
@@ -550,7 +550,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                     value={data.obs4 || ""}
                     onChange={handleChange}
                     minRows={1}
-                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 resize-none"
+                    className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-600 resize-none"
                   />
                 </div>
               </>
@@ -562,7 +562,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                   value={data.observacionesAuto || ""}
                   onChange={handleChange}
                   minRows={1}
-                  className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 resize-none"
+                  className="flex w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-600 resize-none"
                 />
               </div>
             )}
@@ -573,7 +573,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
       {/* BLOQUE DATERO */}
       {tipos_datero.includes(tipo) && (
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200 border-t-4 border-t-black">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos Adicionales (Datero Agencia)
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -583,7 +583,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="dominio"
                 value={data.dominio || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
 
@@ -593,7 +593,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="titular"
                 value={data.titular || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -602,7 +602,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="cuil"
                 value={data.cuil || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
 
@@ -625,7 +625,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                     setData({ ...data, fechaNac: "", _fechaNacDate: "" });
                   }
                 }}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
 
@@ -635,7 +635,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="conyuge"
                 value={data.conyuge || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -644,7 +644,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="dniConyuge"
                 value={data.dniConyuge || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -653,7 +653,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="telefonosDatero"
                 value={data.telefonosDatero || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -663,7 +663,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 value={data.correo || ""}
                 type="email"
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -672,7 +672,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="ocupacion"
                 value={data.ocupacion || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
             <div className="space-y-2">
@@ -681,7 +681,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
                 name="domicilioDni"
                 value={data.domicilioDni || ""}
                 onChange={handleChange}
-                className="bg-white focus-visible:ring-red-600"
+                className="bg-white focus-visible:ring-yellow-600"
               />
             </div>
           </div>
@@ -705,7 +705,7 @@ export default function FormBoletoCompraVenta({ tipo }) {
           disabled={loading}
           size="lg"
           onClick={handleDescargaDoble}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
+          className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
         >
           {loading ? "Generando archivos..." : "Descargar PDF"}
         </Button>

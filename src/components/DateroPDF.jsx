@@ -24,9 +24,7 @@ export const DateroPDF = ({ data }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.container}>
-        <Text style={styles.header}>
-          DATERO AGENCIA VICTOR MOLINA AUTOMOTORES
-        </Text>
+        <Text style={styles.header}>DATERO AUTORA AUTOMOTORES</Text>
 
         <View style={styles.row}>
           <Text style={styles.label}>DOMINIO:</Text>

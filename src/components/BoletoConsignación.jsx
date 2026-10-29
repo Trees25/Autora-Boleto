@@ -9,7 +9,7 @@ import {
   Line,
 } from "@react-pdf/renderer";
 
-import Logo from "../assets/logoRecortado.jpeg";
+//import Logo from "../assets/logoRecortado.jpeg";
 
 import { numeroALetras } from "@/lib/numeros";
 
@@ -131,7 +131,7 @@ export const BoletoConsignación = ({ data, logoUrl }) => (
             />
           )}
           <View style={styles.headerTextContainer}>
-            <Image src={Logo} style={styles.headerImage} />
+            {/*<Image src={Logo} style={styles.headerImage} />*/}
             <Text style={styles.subHeader}>BOLETO DE COMPRA/VENTA</Text>
           </View>
         </View>
@@ -165,8 +165,8 @@ export const BoletoConsignación = ({ data, logoUrl }) => (
 
         <Text style={styles.paragraph}>
           Interviene la firma{" "}
-          <Text style={styles.bold}>VICTOR MOLINA AUTOMOTORES</Text> en su
-          exclusivo carácter de AGENCIA INTERMEDIARIA.
+          <Text style={styles.bold}>AUTORA AUTOMOTORES</Text> en su exclusivo
+          carácter de AGENCIA INTERMEDIARIA.
         </Text>
 
         <Text style={styles.paragraph}>
@@ -303,7 +303,7 @@ export const BoletoConsignación = ({ data, logoUrl }) => (
           <View style={styles.col}>
             <Text style={styles.entityTitle}>INTERMEDIARIA (Agencia)</Text>
             <Text style={styles.dataLine}>
-              <Text style={styles.bold}>Victor Molina Automotores</Text>
+              <Text style={styles.bold}>Autora Automotores</Text>
             </Text>
             <Text style={styles.dataLine}>
               CUIT: <Text style={styles.bold}>20-XXXXXXXX-X</Text>

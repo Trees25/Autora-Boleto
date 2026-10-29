@@ -53,7 +53,59 @@ const COLORES_MARCAS = [
   "#ea580c",
   "#475569",
 ];
-
+const DATOS_INICIALES = [
+  {
+    id: "demo-1",
+    tipo: "venta",
+    monto: 15000000,
+    forma_pago: "Efectivo",
+    fecha_firma: "2026-10-25",
+    otras_observaciones: "Sin observaciones particulares.",
+    vehiculos: {
+      dominio: "AB123CD",
+      marca: "Toyota",
+      modelo: "Corolla",
+      tipo: "Sedán",
+      anio: "2020",
+      motor: "1ZZFE123456",
+      chasis: "JT123456789",
+    },
+  },
+  {
+    id: "demo-2",
+    tipo: "compra",
+    monto: 8500000,
+    forma_pago: "Transferencia bancaria",
+    fecha_firma: "2026-10-22",
+    otras_observaciones: "Detalles menores en pintura.",
+    vehiculos: {
+      dominio: "XYZ987",
+      marca: "Ford",
+      modelo: "Fiesta",
+      tipo: "Hatchback",
+      anio: "2018",
+      motor: "ZSD414123",
+      chasis: "9BFZZZ12345",
+    },
+  },
+  {
+    id: "demo-3",
+    tipo: "contrato_consignacion",
+    monto: 1200000,
+    forma_pago: "Contrato de Consignación",
+    fecha_firma: "2026-10-20",
+    otras_observaciones: "Se entrega con duplicado de llave.",
+    vehiculos: {
+      dominio: "LMN456",
+      marca: "Peugeot",
+      modelo: "208",
+      tipo: "Hatchback",
+      anio: "2022",
+      motor: "EB2F123",
+      chasis: "VF3CC123456",
+    },
+  },
+];
 export default function Dashboard() {
   const [operacionesRaw, setOperacionesRaw] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -68,10 +120,40 @@ export default function Dashboard() {
     patente: "",
   });
 
+  const fetchOperaciones = async () => {
+    setLoading(true);
+    try {
+      // 2. Verificamos si ya existe la base de datos local
+      let datosLocales = localStorage.getItem("demo_operaciones");
+
+      // 3. Si no existe (es la primera vez que entra), inyectamos los datos fijos
+      if (!datosLocales) {
+        localStorage.setItem(
+          "demo_operaciones",
+          JSON.stringify(DATOS_INICIALES),
+        );
+        datosLocales = JSON.stringify(DATOS_INICIALES);
+      }
+
+      // 4. Procesamos y ordenamos los datos
+      const data = JSON.parse(datosLocales);
+      const dataOrdenada = data.sort(
+        (a, b) => new Date(b.fecha_firma) - new Date(a.fecha_firma),
+      );
+
+      setOperacionesRaw(dataOrdenada);
+    } catch (error) {
+      console.error("Error obteniendo datos locales:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     fetchOperaciones();
   }, []);
-
+  {
+    /*
   const fetchOperaciones = async () => {
     setLoading(true);
     try {
@@ -116,7 +198,23 @@ export default function Dashboard() {
       alert("No se pudo eliminar la operación. Intente nuevamente.");
     }
   };
+*/
+  }
 
+  const handleEliminarOperacion = async (id) => {
+    if (!window.confirm("¿Eliminar operación de la demo?")) return;
+
+    try {
+      // Filtramos la operación a borrar
+      const nuevaLista = operacionesRaw.filter((op) => op.id !== id);
+
+      // Actualizamos estado y localStorage
+      localStorage.setItem("demo_operaciones", JSON.stringify(nuevaLista));
+      setOperacionesRaw(nuevaLista);
+    } catch (error) {
+      console.error("Error eliminando:", error);
+    }
+  };
   const marcasDisponibles = useMemo(() => {
     const marcas = operacionesRaw
       .map((op) => op.vehiculos?.marca)
@@ -244,7 +342,7 @@ export default function Dashboard() {
           <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-lg relative animate-in fade-in zoom-in duration-200">
             <button
               onClick={() => setOperacionSeleccionada(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-red-600 transition-colors"
+              className="absolute top-4 right-4 text-gray-400 hover:text-yellow-600 transition-colors"
             >
               <X className="h-6 w-6" />
             </button>
@@ -338,7 +436,7 @@ export default function Dashboard() {
         <Button
           variant="outline"
           onClick={limpiarFiltros}
-          className="text-gray-500 hover:text-red-600"
+          className="text-gray-500 hover:text-yellow-600"
         >
           <FilterX className="w-4 h-4 mr-2" /> Limpiar Filtros
         </Button>
@@ -368,7 +466,7 @@ export default function Dashboard() {
             type="date"
             value={filtros.fechaDesde}
             onChange={(e) => actualizarFiltro("fechaDesde", e.target.value)}
-            className="bg-gray-50 text-sm focus-visible:ring-red-600"
+            className="bg-gray-50 text-sm focus-visible:ring-yellow-600"
           />
         </div>
         <div className="space-y-1">
@@ -379,7 +477,7 @@ export default function Dashboard() {
             type="date"
             value={filtros.fechaHasta}
             onChange={(e) => actualizarFiltro("fechaHasta", e.target.value)}
-            className="bg-gray-50 text-sm focus-visible:ring-red-600"
+            className="bg-gray-50 text-sm focus-visible:ring-yellow-600"
           />
         </div>
         <div className="space-y-1">
@@ -468,7 +566,7 @@ export default function Dashboard() {
             <CardTitle className="text-sm font-medium text-gray-500">
               Compras (Inversión)
             </CardTitle>
-            <ArrowDownRight className="h-4 w-4 text-red-600" />
+            <ArrowDownRight className="h-4 w-4 text-yellow-600" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-gray-900">
@@ -482,12 +580,12 @@ export default function Dashboard() {
               Flujo / Balance
             </CardTitle>
             <DollarSign
-              className={`h-4 w-4 ${balance >= 0 ? "text-green-600" : "text-red-600"}`}
+              className={`h-4 w-4 ${balance >= 0 ? "text-green-600" : "text-yellow-600"}`}
             />
           </CardHeader>
           <CardContent>
             <div
-              className={`text-2xl font-bold ${balance >= 0 ? "text-green-600" : "text-red-600"}`}
+              className={`text-2xl font-bold ${balance >= 0 ? "text-green-600" : "text-yellow-600"}`}
             >
               {formatearMoneda(balance)}
             </div>
@@ -691,7 +789,7 @@ export default function Dashboard() {
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                            className="text-red-500 hover:text-yellow-700 hover:bg-red-50"
                             onClick={() => handleEliminarOperacion(op.id)}
                             title="Eliminar operación"
                           >

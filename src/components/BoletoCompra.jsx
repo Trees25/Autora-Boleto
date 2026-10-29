@@ -9,7 +9,7 @@ import {
   Line, // Importación nueva
 } from "@react-pdf/renderer";
 
-import Logo from "../assets/logoRecortado.jpeg";
+//import Logo from "../assets/logoRecortado.jpeg";
 
 const styles = StyleSheet.create({
   page: {
@@ -128,7 +128,8 @@ export const BoletoCompra = ({ data, logoUrl }) => (
             />
           )}
           <View style={styles.headerTextContainer}>
-            <Image src={Logo} style={styles.headerImage} />
+            {/*<Image src={Logo} style={styles.headerImage} />*/}
+
             <Text style={styles.subHeader}>BOLETO DE COMPRA/VENTA</Text>
           </View>
         </View>

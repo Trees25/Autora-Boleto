@@ -116,7 +116,7 @@ export default function FormContratoConsignacion() {
       {/* BLOQUE CLIENTE */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos del Cliente
           </h3>
           <div className="space-y-2">
@@ -125,7 +125,7 @@ export default function FormContratoConsignacion() {
               name="clienteNombre"
               value={data.clienteNombre || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -134,7 +134,7 @@ export default function FormContratoConsignacion() {
               name="clienteCuil"
               value={data.clienteCuil || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -143,14 +143,14 @@ export default function FormContratoConsignacion() {
               name="clienteAbonar"
               value={data.clienteAbonar || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
       </div>
 
       <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-        <h3 className="font-bold text-red-600 uppercase tracking-wide mb-4">
+        <h3 className="font-bold text-yellow-600 uppercase tracking-wide mb-4">
           Fecha
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -178,7 +178,7 @@ export default function FormContratoConsignacion() {
                   });
                 }
               }}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function FormContratoConsignacion() {
 
       {/* BLOQUE VEHICULO */}
       <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-        <h3 className="font-bold text-red-600 uppercase tracking-wide">
+        <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
           Datos del Vehículo
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -196,7 +196,7 @@ export default function FormContratoConsignacion() {
               value={data.vehiculoMarca}
               onValueChange={(val) => handleSelectChange("vehiculoMarca", val)}
             >
-              <SelectTrigger className="bg-white focus:ring-red-600">
+              <SelectTrigger className="bg-white focus:ring-yellow-600">
                 <SelectValue placeholder="Seleccionar..." />
               </SelectTrigger>
               <SelectContent>
@@ -214,7 +214,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoModelo"
               value={data.vehiculoModelo || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -223,7 +223,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoTipo"
               value={data.vehiculoTipo || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -232,7 +232,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoDominio"
               value={data.vehiculoDominio || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
           <div className="space-y-2">
@@ -241,7 +241,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoMotor"
               value={data.vehiculoMotor || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
           <div className="space-y-2">
@@ -250,7 +250,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoChasis"
               value={data.vehiculoChasis || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
 
@@ -260,7 +260,7 @@ export default function FormContratoConsignacion() {
               name="vehiculoDetalles"
               value={data.vehiculoDetalles || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600 uppercase"
+              className="bg-white focus-visible:ring-yellow-600 uppercase"
             />
           </div>
 
@@ -270,7 +270,7 @@ export default function FormContratoConsignacion() {
               value={data.vehiculoAnio}
               onValueChange={(val) => handleSelectChange("vehiculoAnio", val)}
             >
-              <SelectTrigger className="bg-white focus:ring-red-600">
+              <SelectTrigger className="bg-white focus:ring-yellow-600">
                 <SelectValue placeholder="Seleccionar..." />
               </SelectTrigger>
               <SelectContent>
@@ -301,7 +301,7 @@ export default function FormContratoConsignacion() {
           disabled={loading}
           size="lg"
           onClick={handleDescargar}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
+          className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
         >
           {loading ? "Generando archivo..." : "Descargar contrato  PDF"}
         </Button>

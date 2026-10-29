@@ -264,7 +264,7 @@ export default function HistorialCrediticio() {
                 {resultado.aptoAgencia ? (
                   <ShieldCheck className="w-8 h-8 text-green-600" />
                 ) : (
-                  <ShieldAlert className="w-8 h-8 text-red-600" />
+                  <ShieldAlert className="w-8 h-8 text-yellow-600" />
                 )}
                 <h3
                   className={`text-lg font-bold ${resultado.aptoAgencia ? "text-green-800" : "text-red-800"}`}
@@ -305,7 +305,7 @@ export default function HistorialCrediticio() {
                       </div>
                       <div className="flex flex-col sm:flex-row gap-y-1 gap-x-4 mt-2">
                         <span
-                          className={`inline-flex px-2 py-1 text-xs font-bold rounded-md w-fit ${deuda.situacion === 1 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}
+                          className={`inline-flex px-2 py-1 text-xs font-bold rounded-md w-fit ${deuda.situacion === 1 ? "bg-green-100 text-green-700" : "bg-red-100 text-yellow-700"}`}
                         >
                           Situación {deuda.situacion}
                         </span>
@@ -337,7 +337,7 @@ export default function HistorialCrediticio() {
             {resultado.cheques && resultado.cheques.length > 0 && (
               <div className="border border-red-200 rounded-lg overflow-hidden bg-white mt-4">
                 <div className="bg-red-50 px-4 py-3 flex items-center gap-2 border-b border-red-200">
-                  <FileX2 className="w-5 h-5 text-red-600" />
+                  <FileX2 className="w-5 h-5 text-yellow-600" />
                   <h4 className="font-bold text-red-800">
                     Historial de Cheques Rechazados
                   </h4>
@@ -352,7 +352,7 @@ export default function HistorialCrediticio() {
                         <span className="font-bold text-gray-900 uppercase text-sm">
                           Motivo: {cheque.motivo}
                         </span>
-                        <span className="font-bold text-red-700 text-lg">
+                        <span className="font-bold text-yellow-700 text-lg">
                           {formatearMoneda(cheque.monto)}
                         </span>
                       </div>

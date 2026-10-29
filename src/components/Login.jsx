@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,23 +14,26 @@ export default function Login() {
     setLoading(true);
     setError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    setTimeout(() => {
+      if (email === "demo@gmail.com" && password === "demo123") {
+        // Guardamos el estado de sesión localmente para la demo
+        localStorage.setItem("demo_session", "activa");
 
-    if (error) {
-      setError("Credenciales incorrectas. Verificá tu email y contraseña.");
-    }
-    setLoading(false);
+        // Redirigimos a la página principal / dashboard
+        window.location.href = "/";
+      } else {
+        setError("Credenciales incorrectas. Verificá tu email y contraseña.");
+      }
+      setLoading(false);
+    }, 800);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 border-t-4 border-t-red-600">
+      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 border-t-4 border-t-yellow-600">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-gray-900">
-            VICTOR <span className="text-red-600">MOLINA</span>
+            AUTORA <span className="text-yellow-600">Boleto</span>
           </h2>
           <p className="text-gray-500 mt-2">Acceso al sistema de gestión</p>
         </div>
@@ -46,7 +48,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="focus-visible:ring-red-600"
+              className="focus-visible:ring-yellow-600"
             />
           </div>
 
@@ -58,16 +60,23 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="focus-visible:ring-red-600"
+              className="focus-visible:ring-yellow-600"
             />
           </div>
 
-          {error && <p className="text-red-600 text-sm font-medium">{error}</p>}
+          {error && (
+            <p className="text-yellow-600 text-sm font-medium">{error}</p>
+          )}
+
+          {/* Mensaje de ayuda para la demo */}
+          <div className="bg-blue-50 text-blue-800 text-xs p-3 rounded border border-blue-200 text-center">
+            <strong>Datos Demo:</strong> demo@gmail.com / demo123
+          </div>
 
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2"
+            className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2"
           >
             {loading ? "Ingresando..." : "Iniciar Sesión"}
           </Button>

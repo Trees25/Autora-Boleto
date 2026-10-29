@@ -158,9 +158,9 @@ export const ContratoConsignacion = ({ data, logoUrl }) => (
           <Text style={styles.bold}>
             {data.clienteCuil || "……………………………………………………………………………………"}
           </Text>{" "}
-          por una parte y VICTOR MOLINA AUTOMOTORES con domicilio en Av. Paula
-          Albarracín de Sarmiento 1118 – S – Capital por la otra parte, se
-          conviene el siguiente contrato de “CONSIGNACION” para la venta de un{" "}
+          por una parte y AUTORA AUTOMOTORES con domicilio en Capital por la
+          otra parte, se conviene el siguiente contrato de “CONSIGNACION” para
+          la venta de un{" "}
           <Text style={styles.bold}>{data.vehiculoMarca || "…………"}</Text> Modelo{" "}
           <Text style={styles.bold}>{data.vehiculoModelo || "…………"}</Text> Tipo{" "}
           <Text style={styles.bold}>{data.vehiculoTipo || "…………"}</Text> Motor
@@ -181,7 +181,7 @@ export const ContratoConsignacion = ({ data, logoUrl }) => (
             <Text style={styles.bold}>
               {data.clienteNombre || "……………………………………………………………………………………"}
             </Text>{" "}
-            entrega y Victor Molina Automotores recibe la unidad detallada
+            entrega y Autora Automotores recibe la unidad detallada
             procedentemente para su venta, fijándose un precio vigente al
             momento de la venta.
           </Text>
@@ -190,20 +190,20 @@ export const ContratoConsignacion = ({ data, logoUrl }) => (
         <View style={styles.listItem}>
           <Text style={styles.listNumber}>2)</Text>
           <Text style={styles.listText}>
-            Mediante este contrato la firma “Victor Molina Automotores” queda
-            facultada a enajenar el vehículo, dentro de las normas corrientes y
-            en la forma que convenga, pudiendo confeccionar la facturación
-            prenda y toda clase de documentación de transferencia así como la
-            inscripción de documentación en garantía por saldo de precio
+            Mediante este contrato la firma “Autora Automotores” queda facultada
+            a enajenar el vehículo, dentro de las normas corrientes y en la
+            forma que convenga, pudiendo confeccionar la facturación prenda y
+            toda clase de documentación de transferencia así como la inscripción
+            de documentación en garantía por saldo de precio
           </Text>
         </View>
 
         <View style={styles.listItem}>
           <Text style={styles.listNumber}>3)</Text>
           <Text style={styles.listText}>
-            Por la presente “Victor Molina Automotores” percibirá una comisión
-            que se pactara al momento de la venta la que será descontada del
-            valor de la unidad vendida.
+            Por la presente “Autora Automotores” percibirá una comisión que se
+            pactara al momento de la venta la que será descontada del valor de
+            la unidad vendida.
           </Text>
         </View>
 

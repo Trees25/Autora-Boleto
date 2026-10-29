@@ -11,125 +11,7 @@ const formatearFechaSQL = (fechaStr) => {
   return null;
 };
 {
-  /*FUNCION VIEJA
-export async function guardarOperacionEnBD(data, tipoOperacion) {
-  try {
-    // 1. Crear o Actualizar Vehículo
-    const { data: vehiculo, error: errVehiculo } = await supabase
-      .from("vehiculos")
-      .upsert(
-        {
-          dominio: data.vehiculoDominio,
-          marca: data.vehiculoMarca,
-          modelo: data.vehiculoModelo,
-          tipo: data.vehiculoTipo,
-          anio: parseInt(data.vehiculoAnio),
-          motor: data.vehiculoMotor,
-          chasis: data.vehiculoChasis,
-          inscripcion_inicial: data.vehiculoInsc,
-          observaciones: data.observacionesAuto,
-        },
-        { onConflict: "dominio" },
-      )
-      .select("id")
-      .single();
-
-    if (errVehiculo) throw errVehiculo;
-
-    // 2. Crear o Actualizar Vendedor
-    let vendedorId = null;
-    if (data.vendedorDni) {
-      const { data: vendedor, error: errVendedor } = await supabase
-        .from("clientes")
-        .upsert(
-          {
-            dni: data.vendedorDni,
-            nombre_completo: data.vendedorNombre,
-            domicilio: data.vendedorDomicilio,
-            localidad: data.vendedorLocalidad,
-            telefono: data.vendedorTel,
-          },
-          { onConflict: "dni" },
-        )
-        .select("id")
-        .single();
-
-      if (errVendedor) throw errVendedor;
-      vendedorId = vendedor.id;
-    }
-
-    // 3. Crear o Actualizar Comprador
-    let compradorId = null;
-    if (data.compradorDni) {
-      const { data: comprador, error: errComprador } = await supabase
-        .from("clientes")
-        .upsert(
-          {
-            dni: data.compradorDni,
-            nombre_completo: data.compradorNombre,
-            domicilio: data.compradorDomicilio,
-            localidad: data.compradorLocalidad,
-            telefono: data.compradorTel,
-            cuil: data.cuil,
-            // ACÁ SE APLICA LA CORRECCIÓN:
-            fecha_nacimiento: formatearFechaSQL(data.fechaNac),
-            ocupacion: data.ocupacion,
-            conyuge_nombre: data.conyuge,
-            conyuge_dni: data.dniConyuge,
-            email: data.correo,
-          },
-          { onConflict: "dni" },
-        )
-        .select("id")
-        .single();
-
-      if (errComprador) throw errComprador;
-      compradorId = comprador.id;
-    }
-
-    // 4. Crear la Operación
-    const partes = [];
-    let otras_obs = "";
-
-    if (tipoOperacion === "compra") {
-      if (data.obs2) partes.push(` ${data.obsExterior}`);
-      if (data.obs3) partes.push(` ${data.obsInterior}`);
-      if (data.obs4) partes.push(` ${data.obsMecanica}`);
-
-      // Sobrescribimos el campo general con los datos unidos
-      otras_obs =
-        partes.length > 0
-          ? partes.join(" | ")
-          : "Sin observaciones particulares.";
-    } else {
-      otras_obs = "Sin observaciones particulares";
-    }
-
-    const { error: errOperacion } = await supabase.from("operaciones").insert({
-      tipo: tipoOperacion,
-      vehiculo_id: vehiculo.id,
-      vendedor_id: vendedorId,
-      comprador_id: compradorId,
-      monto: parseFloat(data.precio?.replace(/\D/g, "") || 0),
-      forma_pago: data.formaPago,
-      gastos_transferencia: parseFloat(
-        data.gastoTransferencia?.replace(/\D/g, "") || 0,
-      ),
-      fecha_firma: `2026-${data.firmaMes.padStart(2, "0")}-${data.firmaDia.padStart(2, "0")}`,
-      observaciones: data.observaciones,
-      otras_observaciones: otras_obs,
-    });
-
-    if (errOperacion) throw errOperacion;
-
-    console.log("Operación guardada con éxito en Supabase");
-  } catch (error) {
-    console.error("Error en la base de datos:", error);
-    throw error;
-  }
-}*/
-}
-
+  /*
 export async function guardarOperacionEnBD(data, tipoOperacion) {
   try {
     // 1. Crear o Actualizar Vehículo
@@ -288,6 +170,51 @@ export async function guardarOperacionEnBD(data, tipoOperacion) {
     console.error("Error en la base de datos:", error);
     throw error;
   }
+}*/
+}
+// Versión DEMO de db.js
+export async function guardarOperacionEnBD(data, tipoOperacion) {
+  try {
+    // 1. Traer operaciones existentes o iniciar array vacío
+    const operacionesGuardadas =
+      JSON.parse(localStorage.getItem("demo_operaciones")) || [];
+
+    // 2. Armar el objeto simulando la estructura que te devolvía Supabase
+    const nuevaOperacion = {
+      id: Date.now().toString(), // ID único falso
+      tipo: tipoOperacion,
+      monto: parseFloat(
+        data.precio?.toString().replace(/\D/g, "") ||
+          data.clienteAbonar?.toString().replace(/\D/g, "") ||
+          0,
+      ),
+      forma_pago: data.formaPago || "Contrato",
+      fecha_firma: `${data.firmaAnio || "2026"}-${String(data.firmaMes || "1").padStart(2, "0")}-${String(data.firmaDia || "1").padStart(2, "0")}`,
+      otras_observaciones: data.observaciones || "Sin observaciones",
+      vehiculos: {
+        dominio: data.vehiculoDominio?.toUpperCase() || "SIN PATENTE",
+        marca: data.vehiculoMarca || "Genérica",
+        modelo: data.vehiculoModelo || "Modelo",
+        tipo: data.vehiculoTipo || "Auto",
+        anio: data.vehiculoAnio || "2020",
+        motor: data.vehiculoMotor || "",
+        chasis: data.vehiculoChasis || "",
+        inscripcion_inicial: data.vehiculoInsc || "",
+        observaciones: data.observacionesAuto || "",
+      },
+    };
+
+    // 3. Guardar en localStorage
+    operacionesGuardadas.push(nuevaOperacion);
+    localStorage.setItem(
+      "demo_operaciones",
+      JSON.stringify(operacionesGuardadas),
+    );
+
+    console.log("Operación guardada en LocalStorage (Modo Demo)");
+  } catch (error) {
+    console.error("Error en demo:", error);
+  }
 }
 
 export async function guardarPagareEnBD(datos) {
@@ -328,7 +255,7 @@ export async function guardarPagareEnBD(datos) {
       monto_letras: numeroALetras(montoLimpio),
       fecha_emision: new Date().toISOString().split("T")[0], // Fecha actual (YYYY-MM-DD)
       fecha_vencimiento: `${datos.añoVencimiento || "2026"}-${String(datos.mesVencimiento).padStart(2, "0")}-${String(datos.diaVencimiento).padStart(2, "0")}`,
-      beneficiario: datos.recibeNombreCompleto || "Victor Molina",
+      beneficiario: datos.recibeNombreCompleto || "Autora",
       concepto_valor: "Vehículo",
       lugar_pago: "San Juan",
       estado: estadoDefinitivo,

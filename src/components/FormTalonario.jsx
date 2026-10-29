@@ -28,7 +28,7 @@ export default function FormTalonario() {
     clienteDomicilio: "",
     clienteLocalidad: "",
     clienteTel: "",
-    empresaNombre: "Victor Molina",
+    empresaNombre: "Autora",
     recibeNombreCompleto: "",
     monto: "",
 
@@ -51,8 +51,8 @@ export default function FormTalonario() {
       clienteDomicilio: "Mendoza Sur 456",
       clienteLocalidad: "San Juan Capital",
       clienteTel: "2644123456",
-      empresaNombre: "Victor Molina",
-      recibeNombreCompleto: "Victor Molina",
+      empresaNombre: "Autora",
+      recibeNombreCompleto: "Autora",
       monto: "500000",
 
       // Fechas sincronizadas
@@ -171,7 +171,7 @@ export default function FormTalonario() {
       {/* BLOQUE CLIENTE */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos del Cliente
           </h3>
           <div className="space-y-2">
@@ -180,7 +180,7 @@ export default function FormTalonario() {
               name="clienteNombre"
               value={data.clienteNombre || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -189,7 +189,7 @@ export default function FormTalonario() {
               name="clienteDni"
               value={data.clienteDni || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -198,7 +198,7 @@ export default function FormTalonario() {
               name="clienteDomicilio"
               value={data.clienteDomicilio || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -207,7 +207,7 @@ export default function FormTalonario() {
               name="clienteLocalidad"
               value={data.clienteLocalidad || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -216,13 +216,13 @@ export default function FormTalonario() {
               name="clienteTel"
               value={data.clienteTel || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
 
         <div className="space-y-4 bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-          <h3 className="font-bold text-red-600 uppercase tracking-wide">
+          <h3 className="font-bold text-yellow-600 uppercase tracking-wide">
             Datos del Pagaré
           </h3>
           <div className="space-y-2">
@@ -231,7 +231,7 @@ export default function FormTalonario() {
               name="recibeNombreCompleto"
               value={data.recibeNombreCompleto || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -240,7 +240,7 @@ export default function FormTalonario() {
               name="monto"
               value={data.monto || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -251,7 +251,7 @@ export default function FormTalonario() {
               name="valorRecibidoen"
               value={data.valorRecibidoen || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
           <div className="space-y-2">
@@ -260,14 +260,14 @@ export default function FormTalonario() {
               name="pagaderoEn"
               value={data.pagaderoEn || ""}
               onChange={handleChange}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
       </div>
 
       <div className="bg-gray-50 p-4 sm:p-5 rounded-lg border border-gray-200">
-        <h3 className="font-bold text-red-600 uppercase tracking-wide mb-4">
+        <h3 className="font-bold text-yellow-600 uppercase tracking-wide mb-4">
           Fecha de Vencimiento
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -297,7 +297,7 @@ export default function FormTalonario() {
                   });
                 }
               }}
-              className="bg-white focus-visible:ring-red-600"
+              className="bg-white focus-visible:ring-yellow-600"
             />
           </div>
         </div>
@@ -319,7 +319,7 @@ export default function FormTalonario() {
           disabled={loading}
           size="lg"
           onClick={handleDescargar}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
+          className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-8 py-6 text-lg shadow-lg w-full sm:w-auto"
         >
           {loading ? "Generando archivo..." : "Descargar Pagaré PDF"}
         </Button>
